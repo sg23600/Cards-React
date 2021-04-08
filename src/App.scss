@@ -1,0 +1,87 @@
+@import url("https://fonts.googleapis.com/css2?family=IM+Fell+Double+Pica&display=swap");
+
+$slate-color: rgb(16, 24, 50);
+$blue-color: #00bcdd;
+$pink-color: #ff00ff;
+body {
+  background: rgba(0, 128, 0, 0.801);
+  font-family: "IM Fell Double Pica";
+}
+
+.card {
+  // font-family: "IM Fell Double Pica";
+  color: red;
+  background: white;
+  height: 10rem;
+  width: 5rem;
+  padding: 2rem;
+  img {
+    height: 5em;
+    width: auto;
+  }
+  h1 {
+    text-align: center;
+  }
+  border-radius: 2rem;
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12);
+}
+
+.red {
+  color: red;
+}
+.black {
+  color: black;
+}
+
+.welcome {
+  color: rgb(255, 255, 255);
+  letter-spacing: 3px;
+  text-align: center;
+}
+.btn {
+  width: 200px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  margin: 20px;
+  height: 55px;
+  text-align: center;
+  border: none;
+  background-size: 300% 100%;
+
+  border-radius: 50px;
+  moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+
+  &:hover {
+    background-position: 100% 0;
+    moz-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  background-image: linear-gradient(
+    to right,
+    #29323c,
+    #485563,
+    #2b5876,
+    #4e4376
+  );
+  box-shadow: 0 4px 15px 0 rgba(45, 54, 65, 0.75);
+}
+
+.sub {
+  font-size: 1.5rem;
+  text-align: center;
+}
