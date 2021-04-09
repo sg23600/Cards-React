@@ -4,11 +4,12 @@ $slate-color: rgb(16, 24, 50);
 $blue-color: #00bcdd;
 $pink-color: #ff00ff;
 html {
-  overflow: hidden;
+  overflow-x: hidden;
 }
 body {
   background: rgba(0, 128, 0, 0.801);
   font-family: "IM Fell Double Pica";
+  height: 100vh;
 }
 
 .card {
