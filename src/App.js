@@ -71,15 +71,18 @@ class App extends Component {
       data = generateCards(this.state.count)
       let newCards = this.state.data
       for (let i = 0; i < 5; i++) {
-        newCards.push({
-          number: data.number[i].toString(),
-          shape: data.shape[i],
-        })
+        if (data.number[i])
+          newCards.push({
+            number: data.number[i].toString(),
+            shape: data.shape[i],
+          })
       }
       this.setState(
         {
           count: this.state.count + 1,
-          stack: this.state.stack - 5,
+          // stack: this.state.stack - 5,
+          stack:
+            this.state.stack === 2 ? 0 : this.state.stack - 5,
           data: newCards,
         },
         () => {
@@ -101,12 +104,6 @@ class App extends Component {
               shapeColour={this.shapeColour}
             />
           ))}
-          <Card
-            number="2"
-            shape={getShape["heart"]}
-            shapeColour={this.shapeColour}
-          />
-          <Card number="4" shape={spade} shapeColour={this.shapeColour} />
         </div>
         <button className="btn" onClick={() => this.drawCards()}>
           Draw 5!
