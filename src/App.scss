@@ -120,3 +120,8 @@ body {
   flex-direction: column;
   justify-content: center;
 }
+@media (orientation: portrait) {
+  .cards {
+    height: 50vh;
+  }
+}
