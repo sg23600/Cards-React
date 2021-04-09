@@ -66,6 +66,8 @@ class App extends Component {
   }
 
   drawCards = () => {
+    // let tray = document.getElementById("cards")
+    // tray.style.display = "flex"
     let data = {}
     if (5 * this.state.count <= 52) {
       data = generateCards(this.state.count)
@@ -80,9 +82,7 @@ class App extends Component {
       this.setState(
         {
           count: this.state.count + 1,
-          // stack: this.state.stack - 5,
-          stack:
-            this.state.stack === 2 ? 0 : this.state.stack - 5,
+          stack: this.state.stack === 2 ? 0 : this.state.stack - 5,
           data: newCards,
         },
         () => {
@@ -94,20 +94,26 @@ class App extends Component {
   render() {
     return (
       <div>
-        <h1 className="welcome">Welcome to the Card Game!</h1>
-        <p className="sub">You have {this.state.stack} cards left</p>
-        <div className="cards">
+        <div className="top-stick">
+          <h1 className="welcome">Welcome to the Card Game!</h1>
+          <p className="sub">You have {this.state.stack} cards left</p>
+        </div>
+
+        <div className={`cards ${this.state.count === 0 && "block"}`}>
           {this.state.data.map((item, i) => (
             <Card
+              className="card"
               number={item.number}
               shape={getShape[item.shape]}
               shapeColour={this.shapeColour}
             />
           ))}
         </div>
-        <button className="btn" onClick={() => this.drawCards()}>
-          Draw 5!
-        </button>
+        <div className="btn-div">
+          <button className="btn" onClick={() => this.drawCards()}>
+            Draw 5!
+          </button>
+        </div>
       </div>
     )
   }

@@ -3,6 +3,9 @@
 $slate-color: rgb(16, 24, 50);
 $blue-color: #00bcdd;
 $pink-color: #ff00ff;
+html {
+  overflow: hidden;
+}
 body {
   background: rgba(0, 128, 0, 0.801);
   font-family: "IM Fell Double Pica";
@@ -42,6 +45,7 @@ body {
   text-align: center;
 }
 .btn {
+  display: block;
   width: 200px;
   font-size: 16px;
   font-weight: 600;
@@ -81,6 +85,10 @@ body {
   box-shadow: 0 4px 15px 0 rgba(45, 54, 65, 0.75);
 }
 
+.btn-div {
+  display: flex;
+  justify-content: center;
+}
 .sub {
   font-size: 1.5rem;
   text-align: center;
@@ -88,4 +96,16 @@ body {
 
 .cards {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 1rem 10%;
+  overflow-y: scroll;
+  height: 60vh;
+}
+.block {
+  display: none;
+}
+
+.card {
+  margin: 1rem;
 }
