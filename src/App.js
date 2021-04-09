@@ -110,7 +110,10 @@ class App extends Component {
           ))}
         </div>
         <div className="btn-div">
-          <button className="btn" onClick={() => this.drawCards()}>
+          <button
+            className={`btn ${this.state.stack === 0 && "over"}`}
+            onClick={() => this.drawCards()}
+          >
             Draw 5!
           </button>
         </div>
