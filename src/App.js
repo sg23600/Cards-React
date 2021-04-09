@@ -20,7 +20,12 @@ const shapeDict = {
   2: "heart",
   3: "spade",
 }
-
+const getShape = {
+  heart: heart,
+  club: club,
+  diamond: diamond,
+  spade: spade,
+}
 const numberDict = {
   1: "ace",
   11: "jack",
@@ -50,8 +55,7 @@ class App extends Component {
     this.state = {
       stack: 52,
       count: 0,
-      number: [],
-      shape: [],
+      data: [],
     }
   }
   shapeColour = (shape) => {
@@ -60,19 +64,29 @@ class App extends Component {
     }
     return "black"
   }
+
   drawCards = () => {
     let data = {}
     if (5 * this.state.count <= 52) {
       data = generateCards(this.state.count)
-      this.setState({
-        count: this.state.count + 1,
-        stack: this.state.stack - 5,
-        number: data.number,
-        shape: data.shape,
-      })
+      let newCards = this.state.data
+      for (let i = 0; i < 5; i++) {
+        newCards.push({
+          number: data.number[i].toString(),
+          shape: data.shape[i],
+        })
+      }
+      this.setState(
+        {
+          count: this.state.count + 1,
+          stack: this.state.stack - 5,
+          data: newCards,
+        },
+        () => {
+          console.log(this.state)
+        }
+      )
     }
-    console.log(data)
-    console.log(this.state)
   }
   render() {
     return (
@@ -80,12 +94,18 @@ class App extends Component {
         <h1 className="welcome">Welcome to the Card Game!</h1>
         <p className="sub">You have {this.state.stack} cards left</p>
         <div className="cards">
+          {this.state.data.map((item, i) => (
+            <Card
+              number={item.number}
+              shape={getShape[item.shape]}
+              shapeColour={this.shapeColour}
+            />
+          ))}
           <Card
-            number={this.state.number[0]}
-            shape={this.state.shape[0]}
+            number="2"
+            shape={getShape["heart"]}
             shapeColour={this.shapeColour}
           />
-          <Card number="2" shape={heart} shapeColour={this.shapeColour} />
           <Card number="4" shape={spade} shapeColour={this.shapeColour} />
         </div>
         <button className="btn" onClick={() => this.drawCards()}>
